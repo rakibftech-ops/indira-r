@@ -156,6 +156,7 @@
                 'Is Student': getIsStudent.checked,
                 'Domain Switch': '',
                 salesforce_uuid: decodeURIComponent(frCokkie['salesforce_uuid'] || ""),
+                ...(window.updateZapPayload || {}),
             };
 
             if (callBackZap) {
@@ -274,6 +275,7 @@
                 'Stage of Career Change': getStgCrCh.value,
                 salesforce_uuid: decodeURIComponent(frCokkie['salesforce_uuid'] || ""),
                 'Switch to Engineering Management': false ? 'Yes' : 'No',
+                ...(window.updateZapPayload || {}),
             };
 
 
@@ -337,6 +339,7 @@
             'hear about IK': multiSelect.getValue(true).join(", "),
             salesforce_uuid: decodeURIComponent(frCokkie['salesforce_uuid'] || ""),
             'Switch to Engineering Management': false ? 'Yes' : 'No',
+            ...(window.updateZapPayload || {}),
         };
         GQLformData = { ...GQLformData, ...leadScoreData };
         try {

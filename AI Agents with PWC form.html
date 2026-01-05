@@ -240,7 +240,8 @@
                 "Invitee Start Time": webNearInfo.inviteStartTime,
                 "Invitee End Time": webNearInfo.inviteEndTime,
                 "expertInsightABValue": typeof expertInsightABValue !== "undefined" ? expertInsightABValue : "",
-                "lead_magnet": location.pathname.includes('scholarship-genai') ? "claim_scholarship" : "download_brochure"
+                "lead_magnet": location.pathname.includes('scholarship-genai') ? "claim_scholarship" : "download_brochure",
+                ...(window.updateZapPayload || {}),
             };
 
             let options = {
@@ -486,7 +487,8 @@
                 // 'Domain Switch': '',
                 salesforce_uuid: webNearInfo.salesforce_uuid,
                 "GA_event_id": Date.now(),
-                "lead_magnet": location.pathname.includes('scholarship-genai') ? "claim_scholarship" : "download_brochure"
+                "lead_magnet": location.pathname.includes('scholarship-genai') ? "claim_scholarship" : "download_brochure",
+                ...(window.updateZapPayload || {}),
             };
 
             try {

@@ -267,6 +267,7 @@
         // 'Domain Switch': '',
         salesforce_uuid: webNearInfo.salesforce_uuid,
         "GA_event_id": Date.now(),
+        ...(window.updateZapPayload || {}),
       };
 
       if (window.location.pathname.includes('pwc-agentic-ai-bootcamp')) {

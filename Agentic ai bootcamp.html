@@ -283,6 +283,7 @@
 
         "Programming Language": prLang.value,
         'Work Experience': webNearYearsExperiance2.value,
+        ...(window.updateZapPayload || {}),
       };
 
       let options = {
@@ -532,6 +533,7 @@
           'Laid Off': v2IsLaidOff,
           'no_coding_knowledge': v2IsStudent,
           salesforce_uuid: webNearInfo2.salesforce_uuid,
+          ...(window.updateZapPayload || {}),
         };
 
         try {

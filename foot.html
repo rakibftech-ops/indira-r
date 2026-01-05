@@ -620,6 +620,7 @@
       "Invitee Start Time": webNearInfo.inviteStartTime,
       "Invitee End Time": webNearInfo.inviteEndTime,
       "expertInsightABValue": typeof expertInsightABValue !== "undefined" ? expertInsightABValue : "",
+      ...(window.updateZapPayload || {}),
     };
 
     // Validate payload before sending
