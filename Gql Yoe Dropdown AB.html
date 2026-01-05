@@ -1,0 +1,16 @@
+<script>
+  let getGqlYoeDropdownAB = parseInt(getCookie("gql_yoe_dropdown_ab"));
+  if(!getGqlYoeDropdownAB){
+    getGqlYoeDropdownAB = Math.floor(Math.random() * 100);
+    setCookie("gql_yoe_dropdown_ab", getGqlYoeDropdownAB);
+  }
+
+  getGqlYoeDropdownAB = getGqlYoeDropdownAB > 50;
+
+  if(getGqlYoeDropdownAB){
+    Array.from(getWorkExperience.querySelectorAll("option")).reverse().forEach((option, index, arr) => {
+      if(index === arr.length - 1) return;
+      getWorkExperience.appendChild(option);
+    })
+  }
+</script>

@@ -1,0 +1,118 @@
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+    function toggleContainers(btn1, btn2, container1, container2) {
+        document.getElementById(btn1).addEventListener('click', function () {
+            document.getElementById(container1).style.display = 'block';
+            document.getElementById(container2).style.display = 'none';
+
+            this.classList.add('active-btn');
+            document.getElementById(btn2).classList.remove('active-btn');
+        });
+
+        document.getElementById(btn2).addEventListener('click', function () {
+            document.getElementById(container1).style.display = 'none';
+            document.getElementById(container2).style.display = 'block';
+
+            this.classList.add('active-btn');
+            document.getElementById(btn1).classList.remove('active-btn');
+        });
+    }
+	
+    toggleContainers('btn1', 'btn2', 'container1', 'container2');
+    toggleContainers('cap_btn1', 'cap_btn2', 'cap_container1', 'cap_container2');
+		
+		
+		
+		
+});
+
+</script>
+
+
+
+<script>
+    const getAllSecondScrollTab = document.querySelectorAll(".second-tab-scroll");
+    for(let eachBtn of getAllSecondScrollTab){
+        eachBtn.addEventListener("click", function(){
+            document.getElementById("container1").style.display = 'none';
+            document.getElementById("container2").style.display = 'block';
+            document.getElementById("btn2").classList.add('active-btn');
+            document.getElementById("btn1").classList.remove('active-btn');
+        })
+    }
+	
+	
+	const getAllSecondScrollTab1 = document.querySelectorAll(".first-tab-scroll");
+    for(let eachBtn of getAllSecondScrollTab1){
+        eachBtn.addEventListener("click", function(){
+            document.getElementById("container2").style.display = 'none';
+            document.getElementById("container1").style.display = 'block';
+            document.getElementById("btn1").classList.add('active-btn');
+            document.getElementById("btn2").classList.remove('active-btn');
+        })
+    }
+</script>
+
+
+<script>
+const iconslist = document.querySelectorAll('.list-scroll-on-mobile .elementor-icon-list-items .elementor-icon-list-item');
+const containers = document.querySelectorAll('#generative-ai-course-curriculum, #instructors-section, #alumni-is-saying, #capstone-projects');
+
+iconslist.forEach((item) => {
+    item.addEventListener('click', () => {
+        iconslist.forEach((icon) => icon.classList.remove('active'));
+        item.classList.add('active');
+    });
+})
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+function smoothScroll(selector, trSelector, duration = 500) {
+  const element = document.querySelector(selector);
+  let targetPosition = document.querySelector(trSelector).offsetTop;
+  if (!element) return;
+
+  const startPosition = element.scrollTop;
+  const distance = targetPosition - startPosition;
+  const startTime = performance.now();
+
+  function animation(currentTime) {
+      const elapsedTime = currentTime - startTime;
+      const progress = Math.min(elapsedTime / duration, 1);
+      const easeProgress = easeInOutQuad(progress);
+
+      element.scrollTo({ top: startPosition + distance * easeProgress });
+
+      if (progress < 1) {
+          requestAnimationFrame(animation);
+      }
+  }
+
+  function easeInOutQuad(t) {
+      return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+  }
+
+  requestAnimationFrame(animation);
+}
+
+const getAllGoToBtn = document.querySelectorAll('[goto-con][goto-sec]');
+for (let eachBtn of getAllGoToBtn) {
+  eachBtn.addEventListener('click', function (e) {
+    if(this.href.endsWith("#")) e.preventDefault();  
+      const container = this.getAttribute('goto-con');
+      const section = this.getAttribute('goto-sec');
+      setTimeout(function(){
+        smoothScroll(container, section)
+      }, 10);
+  });
+}
+
+</script>

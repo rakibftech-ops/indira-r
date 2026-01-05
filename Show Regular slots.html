@@ -1,0 +1,26 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  // Select slot containers
+  const regularSlots = document.querySelector(".slots_container.regular-slot-container");
+  const switchSlots  = document.querySelector(".slots_container.switch-slot-container");
+
+  function show(el) { if (el) el.style.display = ""; }
+  function hide(el) { if (el) el.style.display = "none"; }
+
+  // Always show regular slots and hide switch-up slots
+  show(regularSlots);
+  hide(switchSlots);
+  window.webinar_variant = "regular_india";
+
+  // Add hidden input to forms for analytics tracking
+  const form = document.querySelector("form");
+  if (form) {
+    const hiddenInput = document.createElement("input");
+    hiddenInput.type = "hidden";
+    hiddenInput.name = "webinar_variant";
+    hiddenInput.value = window.webinar_variant;
+    form.appendChild(hiddenInput);
+  }
+});
+</script>
